@@ -5,4 +5,17 @@ categories: general unhelpful
 
 #### boom
 
-__some__ *formatting* ~here~
+__some__ 
+```
+__some__
+```
+
+*formatting*
+```
+*formatting*
+```
+
+~~here~~
+```
+~~here~~
+```
