@@ -1,3 +1,3 @@
 layout: page
-title: "Other Page"
+title: "Other-Page"
 permalink: /other_page
