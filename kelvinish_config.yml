@@ -3,12 +3,12 @@ description: Repository of information someday
 author: Kenneth Gibb Wraight
 
 # Replace with your GitHub username / repo name
-url: "https://kw51y.github.io"
+url: "https://github.com/kw51y/alpha"
 baseurl: "/kelvinish"
 
 # Theme (GitHub Pages supports remote themes)
 remote_theme: just-the-docs/just-the-docs
-logo: "/img/earth-clock.jpg"
+# logo: "/img/earth-clock.jpg"
 search_enabled: true
 heading_anchors: true
 
