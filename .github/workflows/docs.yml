@@ -33,7 +33,6 @@ jobs:
           --config pager_config.yml
           --destination _site
           --baseurl "${{ steps.pages.outputs.base_path }}"
-          --url https://kw51y.github.io
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
