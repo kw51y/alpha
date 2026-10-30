@@ -3,7 +3,7 @@ title: Home
 permalink: /
 ---
 
-# alpha repo.
+# Pager repo.
 
 Trying out some initial manoevres.
 
