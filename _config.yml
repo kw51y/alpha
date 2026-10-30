@@ -1,10 +1,37 @@
 domain: alpha.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://alpha.github.io  # the base hostname and protocol for your site, e.g. http://example.com
-baseurl: /standard/      # place folder name if the site is served in a subfolder
+url: https://alpha.github.io  # the 
 
+theme:
+  name: material
+  logo: img/earth-clock.jpg
+  features:
+    - content.footnote.tooltips
+  icon:
+    annotation: material/plus-circle
 
-theme: jekyll-theme-modernist
-title: Alpha homepage
-description: Bookmark this to keep an eye on my project updates!
-# kramdown or GFM markdown processor
-markdown: GFM
+plugins:
+  - search
+  - mkdocs-pdf
+  - literate-nav:
+      nav_file: nav.md
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - mdx_math
+
+# Page tree
+# nav:
+#   - Home: index.md
+# # MORE_CONTENT
