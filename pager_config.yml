@@ -7,3 +7,15 @@ title: Pager homepage
 description: Bookmark this to keep an eye on my project updates!
 # rdiscount, kramdown, redcarpet
 markdown: kramdown
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: nav
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: nav
