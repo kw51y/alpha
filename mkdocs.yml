@@ -1,9 +1,12 @@
-site_name: Kelvin Project
+domain: alpha.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://alpha.github.io  # the 
+
+site_name: Kelvin Project Copy
 site_description: Repository of information for Kelvin Project
 site_author: Kenneth Gibb Wraight
 
-repo_name: GitLab
-repo_url: https://gitlab.cern.ch/wraight/kelvin-project
+repo_name: Alpha
+repo_url: https://kw51y.github.io/alpha/
 
 theme:
   name: material
