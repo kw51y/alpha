@@ -1,0 +1,54 @@
+name: Build and deploy documentation
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build_docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - uses: actions/configure-pages@v5
+      - name: Set up dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install -r requirements.txt
+          python -m pip freeze
+      - name: Build documentation
+        run: |
+          source venv/bin/activate
+          python docs_gen.py
+          python -m mkdocs build --clean --strict --site-dir public
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy_pages:
+    if: github.ref == 'refs/heads/master'
+    needs: build_docs
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
