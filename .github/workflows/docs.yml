@@ -30,7 +30,7 @@ jobs:
         run: >-
           BUNDLE_GEMFILE=gemfile bundle exec jekyll build
           --source pager
-          --config pager/_config.yml
+          --config pager_config.yml
           --destination _site
           --baseurl "${{ steps.pages.outputs.base_path }}"
           --url https://kw51y.github.io
