@@ -29,8 +29,8 @@ jobs:
       - name: Build Jekyll site
         run: >-
           BUNDLE_GEMFILE=gemfile bundle exec jekyll build
-          --source poster
-          --config poster_config.yml
+          --source kelvinish
+          --config kelvinish_config.yml
           --destination _site
           --baseurl "${{ steps.pages.outputs.base_path }}"
       - uses: actions/upload-pages-artifact@v3
