@@ -1,53 +1,33 @@
-name: Build and deploy Jekyll site
+name: Documentation
 
 on:
   push:
+    branches:
+      - main
+      - master
   workflow_dispatch:
 
 permissions:
   contents: read
-
-concurrency:
-  group: github-pages
-  cancel-in-progress: false
+  pages: write
+  id-token: write
 
 jobs:
-  build:
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: read
-      pages: read
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.1"
-      - name: Install dependencies
-        run: BUNDLE_GEMFILE=gemfile bundle install
-      - uses: actions/configure-pages@v5
-        id: pages
-      - name: Build Jekyll site
-        run: >-
-          BUNDLE_GEMFILE=gemfile bundle exec jekyll build
-          --source kelvinish
-          --config kelvinish_config.yml
-          --destination _site
-          --baseurl "${{ steps.pages.outputs.base_path }}"
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
   deploy:
-    if: github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
+      - uses: actions/configure-pages@v6
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: 3.x
+      - run: pip install zensical
+      - run: zensical build --clean
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
         id: deployment
-        uses: actions/deploy-pages@v4
