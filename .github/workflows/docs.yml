@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       pages: read
@@ -30,7 +30,7 @@ jobs:
         run: >-
           BUNDLE_GEMFILE=gemfile bundle exec jekyll build
           --source kelvinish
-          --config old_config.yml
+          --config _config.yml
           --destination _site
           --baseurl "${{ steps.pages.outputs.base_path }}"
           --url https://kw51y.github.io
