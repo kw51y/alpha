@@ -29,8 +29,8 @@ jobs:
       - name: Build Jekyll site
         run: >-
           BUNDLE_GEMFILE=gemfile bundle exec jekyll build
-          --source kelvinish
-          --config _config.yml
+          --source pager
+          --config pager/_config.yml
           --destination _site
           --baseurl "${{ steps.pages.outputs.base_path }}"
           --url https://kw51y.github.io

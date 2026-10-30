@@ -1,0 +1,27 @@
+.site-navigation {
+  margin: 0 0 1.5rem;
+  padding: 0.5rem;
+  border: 1px solid #d5d5d5;
+  border-radius: 0.3rem;
+  background: #f4f4f4;
+}
+
+.site-navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-navigation a {
+  display: block;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.2rem;
+}
+
+.site-navigation a[aria-current="page"] {
+  background: #2879ad;
+  color: #fff;
+}

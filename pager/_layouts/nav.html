@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<nav class="site-navigation" aria-label="Site navigation">
+  <ul>
+    {% assign nav_pages = site.pages | where_exp: "item", "item.title" | sort: "title" %}
+    {% for nav_page in nav_pages %}
+      {% unless nav_page.url == "/404.html" %}
+        <li>
+          <a href="{{ nav_page.url | relative_url }}"{% if page.url == nav_page.url %} aria-current="page"{% endif %}>{{ nav_page.title | escape }}</a>
+        </li>
+      {% endunless %}
+    {% endfor %}
+    {% for nav_post in site.posts %}
+      <li>
+        <a href="{{ nav_post.url | relative_url }}"{% if page.url == nav_post.url %} aria-current="page"{% endif %}>{{ nav_post.title | escape }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+{{ content }}
