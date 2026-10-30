@@ -1,0 +1,41 @@
+title: Test Project
+description: Repository of information someday
+author: Kenneth Gibb Wraight
+
+# Replace with your GitHub username / repo name
+url: "https://kw51y.github.io"
+baseurl: "/kelvinish"
+
+# Theme (GitHub Pages supports remote themes)
+remote_theme: just-the-docs/just-the-docs
+logo: "/img/earth-clock.jpg"
+search_enabled: true
+heading_anchors: true
+
+aux_links:
+  "GitHub":
+    - "https://github.com/kw51y/alpha"
+aux_links_new_tab: true
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+# Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax        # emits output MathJax 2.x understands
+  syntax_highlighter: rouge
+
+# Replaces the admonition extension
+callouts:
+  note:
+    title: Note
+    color: blue
+  warning:
+    title: Warning
+    color: red
+  tip:
+    title: Tip
+    color: green
