@@ -1,0 +1,9 @@
+#mkdocs-bibtex
+mkdocs~=1.4
+mknotebooks
+mkdocs-mermaid2-plugin
+mkdocs-material~=9.0
+pymdown-extensions
+mkdocs-literate-nav
+python-markdown-math
+mkdocs-pdf
